@@ -10,6 +10,12 @@ const Movie = (props) => {
     const { movies } = props;
     const movie = movies.find(movie => movie.id === Number(id));
 
+    const handleDeleteMovie = (id) => {
+        props.deleteMovie(id)
+
+        push('/movies')
+    }
+
     return (<div className="modal-page col">
         <div className="modal-dialog">
             <div className="modal-content">
@@ -40,7 +46,7 @@ const Movie = (props) => {
 
                         <section>
                             <span className="m-2 btn btn-dark">Favorite</span>
-                            <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete" /></span>
+                            <span className="delete"><input onClick={() => handleDeleteMovie(movie.id)} type="button" className="m-2 btn btn-danger" value="Delete" /></span>
                         </section>
                     </div>
                 </div>
