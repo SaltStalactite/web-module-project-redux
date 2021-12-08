@@ -8,7 +8,7 @@ const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
 
-    const { movies } = props;
+    const { movies, addFavorite, displayFavorites } = props;
     const movie = movies.find(movie => movie.id === Number(id));
 
     const handleDeleteMovie = (id) => {
@@ -50,14 +50,14 @@ const Movie = (props) => {
                         </section>
 
                         <section>
-                            <span className="m-2 btn btn-dark" onClick={handleAddFavorite}>Favorite</span>
+                            {displayFavorites && <span className="m-2 btn btn-dark" onClick={handleAddFavorite}>Favorite</span>}
                             <span className="delete"><input onClick={() => handleDeleteMovie(movie.id)} type="button" className="m-2 btn btn-danger" value="Delete" /></span>
                         </section>
                     </div>
                 </div>
             </div>
         </div>
-    </div>);
+    </div >);
 }
 
 const mapStateToProps = state => {

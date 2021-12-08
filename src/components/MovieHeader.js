@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import { toggleFavorites } from '../actions/favoritesActions'
 
 const MovieHeader = (props) => {
-    const { appTitle } = props;
-    const displayFavorites = true;
+    const { appTitle, displayFavorites, toggleFavorites } = props;
 
     const handleToggleFavorites = () => {
         toggleFavorites()
