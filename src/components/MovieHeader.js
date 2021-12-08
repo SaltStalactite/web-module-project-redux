@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
+
 const MovieHeader = (props) => {
     const { appTitle } = props;
     const displayFavorites = true;
@@ -21,7 +22,8 @@ const MovieHeader = (props) => {
 
 const mapStateToProps = state => {
     return {
-        appTitle: state.appTitle
+        displayFavorites: state.favoritesReducer.displayFavorites,
+        appTitle: state.movieReducer.appTitle
     }
 }
 
